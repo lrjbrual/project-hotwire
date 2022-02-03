@@ -1,0 +1,20 @@
+<%= turbo_frame_tag dom_id(task) do %>
+  <div class="card mt-2">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <%= task.body %>
+        <small><%= task.status %></small>
+      </div>
+        <div class="d-flex justify-content-between">
+          <small>
+          
+            <%= time_ago_in_words(task.created_at)%>
+            <%#= button_to "delete", project, method: :delete, form: {data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-sm btn-danger" %>
+          </small>
+          <small>
+            <%#= link_to "edit", edit_project_path(project) %>
+          </small>
+        </div>
+    </div>
+  </div>
+<% end %>

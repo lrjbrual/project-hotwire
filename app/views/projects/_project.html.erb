@@ -1,0 +1,18 @@
+<%= turbo_frame_tag dom_id(project) do %>
+  <div class="card mt-2">
+    <div class="card-body">
+      <div class="d-flex justify-content-between"> 
+        <%= link_to "#{project.content}", project_path(project), class: "nav-link", data: { turbo: false, turbo_action: "advance"}  %>
+        <%= button_to "vote (#{project.vote})", project_votes_path(project), class: "btn btn-sm btn-success", method: :post %>
+      </div>
+        <div class="d-flex justify-content-between">
+          <small>
+            <%= button_to "delete", project, method: :delete, form: {data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-sm btn-danger" %>
+          </small>
+          <small>
+            <%= link_to "edit", edit_project_path(project) %>
+          </small>
+        </div>
+    </div>
+  </div>
+<% end %>

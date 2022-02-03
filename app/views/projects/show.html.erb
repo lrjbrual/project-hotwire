@@ -1,0 +1,16 @@
+<div class="mt-5">
+<p style="color: green"><%= notice %></p>
+
+<%= link_to "Back to projects", projects_path %>
+
+<%= render @project, project: @project %>
+<div class="content mt-2 mb-2">
+  <%= render 'tasks/form', task: @tasks %>
+</div>
+
+<%= turbo_stream_from "tasks" %>
+
+<%= turbo_frame_tag "tasks" do %>
+    <%= render @tasks %>
+<% end %>
+</div>
