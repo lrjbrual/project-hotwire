@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
   end
 
   def show 
+    @task = @project.tasks.build
     @tasks = @project.tasks
   end
 

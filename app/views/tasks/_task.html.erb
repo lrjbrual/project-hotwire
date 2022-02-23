@@ -7,12 +7,11 @@
       </div>
         <div class="d-flex justify-content-between">
           <small>
-          
             <%= time_ago_in_words(task.created_at)%>
-            <%#= button_to "delete", project, method: :delete, form: {data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-sm btn-danger" %>
+            <%= button_to "delete", project_task_path(task.project, task), method: :delete, form: {data: {turbo_confirm: "Are you sure?"}}, class: "btn btn-sm btn-danger" %>
           </small>
           <small>
-            <%#= link_to "edit", edit_project_path(project) %>
+            <%= link_to "edit", edit_project_task_path(task.project, task) %>
           </small>
         </div>
     </div>
