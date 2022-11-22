@@ -1,0 +1,9 @@
+<div class="empty empty-child m-4">
+  <p class="empty-text">
+    you don't have any project.
+  </p>
+  <%= link_to "create new project",
+            new_project_path,
+            class: "btn btn-primary text-white",
+            data: { turbo_frame: dom_id(Project.new) } %>
+</div>

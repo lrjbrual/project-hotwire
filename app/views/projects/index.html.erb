@@ -2,8 +2,16 @@
 
 <%= turbo_stream_from "projects" %>
 
-<%= turbo_frame_tag "project_form" do %>
-  <%= render 'form', project: @project %>
+<%= turbo_frame_tag Project.new do %>
+  <% if @projects.none? %>
+    <%= render "empty_state" %>
+  <% else %>
+  <%= link_to "new project",
+            new_project_path,
+            class: "btn btn-primary text-white",
+            data: { turbo_frame: dom_id(Project.new) } %>
+
+  <% end %>
 <% end %>
 
 <%= turbo_frame_tag "projects" do %>
