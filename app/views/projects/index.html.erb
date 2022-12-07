@@ -1,19 +1,20 @@
-<h3>Project List</h3>
-
 <%= turbo_stream_from "projects" %>
-
-<%= turbo_frame_tag Project.new do %>
-  <% if @projects.none? %>
-    <%= render "empty_state" %>
-  <% else %>
+<div class="d-flex justify-content-end mb-2">
   <%= link_to "new project",
             new_project_path,
-            class: "btn btn-primary text-white",
+            class: "btn btn-sm btn-primary text-white mt-2",
             data: { turbo_frame: dom_id(Project.new) } %>
-
+</div>
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <form class="d-flex col-12" role="search">
+      <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+      <%# <button class="btn btn-outline-success" type="submit">Search</button> %>
+    </form>
+  </div>
+</nav>
+  <%= turbo_frame_tag Project.new %>
+  <%= turbo_frame_tag "projects" do %>    
+    <%= render "empty_state" %>
+    <%= render @projects %>
   <% end %>
-<% end %>
-
-<%= turbo_frame_tag "projects" do %>
-  <%= render @projects %>
-<% end %>

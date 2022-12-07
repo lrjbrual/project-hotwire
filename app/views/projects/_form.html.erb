@@ -1,19 +1,38 @@
-<%= form_with(model: project, id: dom_id(project)) do |f| %>
-  <% if project.errors.any? %>
-    <div class="alert alert-primary" role="alert">
-        <div style="color: red">
-          <h5><%= pluralize(project.errors.count, "error") %> prohibited this tweet from being saved:</h5>
+<div class="mt-2">
+  <%= form_with(model: project, id: dom_id(project), html: {class: "card-custom--project card-custom--shadow"}) do |f| %>
+    <% if project.errors.any? %>
+      <div class="alert alert-primary" role="alert">
+          <div style="color: red">
+            <h5><%= pluralize(project.errors.count, "error") %> prohibited this tweet from being saved:</h5>
 
-          <ul>
-            <% project.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
+            <ul>
+              <% project.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    <% end %>
+    <div class="row">
+      <small><%= f.label :title, 'Title'%></small>
+      <%= f.text_field :title, class: "form-control" %>
+      <small><%= f.label :content, 'Content'%></small>
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+      <small><%= f.label :start, 'Start date'%></small>
+        <%= f.date_select(:start, order: [:day, :month, :year], start_year: Date.current.year) %>  
+      </div>
+      <div>
+      <small><%= f.label :end, 'end date'%></small>
+        <%= f.date_select(:end, order: [:day, :month, :year], start_year: Date.current.year) %>
+      </div>
+    
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+      <%= link_to sanitize("back"), projects_path, class: "mt-2" %>    
+      <%= f.submit class: "btn btn-sm btn-primary" %>
     </div>
   <% end %>
-  <%= f.text_area :content, class: "form-control" %>
-
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-
-<% end %>
+</div>

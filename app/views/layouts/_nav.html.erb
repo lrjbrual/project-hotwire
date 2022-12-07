@@ -1,0 +1,19 @@
+<% if signed_in? %>
+  <nav class="navbar bg-light">
+    <div class="container">
+      <a class="navbar-brand">
+        <small>
+          <%= current_user.email %>
+        </small>
+      </a>
+      <ul class="nav justify-content-end">
+        <%# <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> %>
+        <li class="nav-item">
+          <%= link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<% end %>

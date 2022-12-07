@@ -1,0 +1,22 @@
+.empty {
+  padding: 10px;
+  border: solid 2px gray;
+  border-style: dashed;
+  text-align: center;
+  border-radius: 10px;
+
+  &-text {
+    font-size: 12px;
+    color: dark-gray;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  &-child {
+    display: none;
+
+    &:only-child {
+      display: revert;
+    }
+  }
+}

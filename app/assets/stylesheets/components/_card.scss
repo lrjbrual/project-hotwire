@@ -1,0 +1,18 @@
+
+.card-custom {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  
+  &--shadow {
+    border-radius: 0.375rem;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 1px 3px 6px gainsboro;
+  }
+  &--project{
+    padding: 30px;
+  }
+
+}

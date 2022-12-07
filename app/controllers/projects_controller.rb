@@ -55,6 +55,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:content, :vote)
+    params.require(:project).permit(:title, :content, :start, :end, :vote)
   end
 end
