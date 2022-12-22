@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_id, only: [:edit, :update, :show, :destroy]
   def index
     @projects = Project.all
+    @projects = @projects.search(params[:search]) if params[:search].present?
     @project = Project.new
   end
 

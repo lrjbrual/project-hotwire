@@ -7,10 +7,9 @@
 </div>
 <nav class="navbar bg-light">
   <div class="container-fluid">
-    <form class="d-flex col-12" role="search">
-      <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-      <%# <button class="btn btn-outline-success" type="submit">Search</button> %>
-    </form>
+    <%= form_with url: "", method: :get, class:"d-flex col-12", data: { turbo_frame: "projects", turbo_action: "advance"}  do |f| %>
+      <%= f.search_field :search, value: params[:search], class: "form-control col-12" , placeholder: "Search project"%>
+    <% end %>
   </div>
 </nav>
   <%= turbo_frame_tag Project.new %>
